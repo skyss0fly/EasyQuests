@@ -44,8 +44,38 @@ $this->admin();
   $questsform->addButton("§d§lSubmit");
         $questsform->sendForm($questsform);
   return true;
-    }
-              
+    }             
+}
+public function admin(): void {
+        $questsform = new SimpleForm(function (Player $player, $data){
+            $result = $data;    
+            if ($result !== null) {
+        
+                switch ($result) {
+                    case 0:
+                  
+                  $sender->sendMessage("Closed Form");
+                    break;
+                }
+            }
+          if ($newquest ){
+$this->newquest();
+          }
+        });
+        $formtitle = "Quests Admin"
+        $formcontent = $this->adminform($content);
+    
+       
+        $adminform->setTitle($formtitle);
+        $adminform->setContent($formcontent);
+
+}
+  $adminform->addButton("§d§lSubmit");
+  $newquest = adminform->addButton("§d§lCreate Quest");
+  
+        $adminform->sendForm($adminform);
+  return true;
+    
 }
 }
 
